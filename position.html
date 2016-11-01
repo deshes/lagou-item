@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拉勾招聘 —— 一种生活</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        outline: 0;
+    }
+    ul,ol{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    a {
+    color: #555;
+    background-color: transparent;
+    text-decoration: none;
+        }
+        .containerCompanyDetails{
+            font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
+            width: 1024px;
+            margin: 40px auto;
+            overflow: hidden;
+            color: #555;
+            font-size: 14px;
+            word-wrap: break-word;
+            float: left;
+            width: 710px;
+            padding-right: 35px;
+            box-shadow: 4px 0 4px #f5f5f5;
+        }
+        .item_container{
+            position: relative;
+            width: 100%;
+            min-height: 20px;
+            padding: 40px 0;
+            margin-top: 10px;
+            border-top: 1px splid #e8e8e8;
+        }
+        .posfilterlist_container .item_title{
+            font-size: 18px;
+            color: #333;
+        }
+        .item_container .item_title{
+            position: absolute;
+            top: -11px;
+            left: 0;
+            padding-right: 16px;
+            background-color: #fff;
+
+        }
+        .posfilterlist_container  .item_title .list_total{
+            color: #00b38a;
+        }
+        .posfilterlist_container .item_con_filter{
+            display: none;
+            position: relative;
+            padding: 15px;
+            border:1px solid #ededed;
+            background-color: #fafafa;
+            zoom:1;
+        }
+        .posfilterlist_container .item_con_list .item_title_date:before, .posfilterlist_container .item_con_list .item_title_date:after.posfilterlist_container .item_con_filter:before, .posfilterlist_container .item_con_filter:after{
+            content: "";
+            display: table;
+        }
+        .posfilterlist_container .item_con_filter .con_filter_type{
+            float: left;
+            font-size: 14px;
+            font-weight: 700;
+            color: #555;
+        }
+        .posfilterlist_container .item_con_filter .con_filter_ul{
+            float: left;
+            zoom: 1;
+        }
+        .posfilterlist_container .item_con_filter .con_filter_li{
+            float: left;
+            padding: 0 10px;
+            margin: 0 10px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+        }
+        .posfilterlist_container .item_con_filter .con_filter_li:hover{
+            background-color: #00b38a;
+            color: #fff;
+        }
+        .posfilterlist_container .item_con_filter .con_filter_ul .selected{
+            height: auto;
+            background-color: #00b38a;
+            color: #fff;
+        }
+        .posfilterlist_container .item_con_list{
+            margin: 20px 0 50px;
+        }
+        .posfilterlist_container .item_con_list .con_list_item{
+            position: relative;
+            height: 50px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border:  1px solid #ededed;
+            font-size: 14px;
+        }
+        .posfilterlist_container .item_con_list .item_title_date{
+            margin-bottom: 10px;
+            zoom: 1;
+        }
+        .posfilterlist_container .item_con_list .item_title_date .item_title1{
+            float: left;
+            font-size: 16px;
+            color: #00b38a;
+        }
+        .posfilterlist_container .item_con_list .item_title_date .item_date{
+            float: right;
+                color: #999;
+        }
+        .posfilterlist_container .item_con_list .ltem_detail{
+            zoom: 1;
+        }
+        p+p{
+            margin-top: 0px    ;
+        }
+        p{
+            margin: 0;
+        }
+        .posfilterlist_container .item_con_list .item_detail .item_salary {
+            float: left;
+            font-size: 16px;
+            color: #fd5f39;
+        }
+
+        .posfilterlist_container .item_con_list .item_title_date:after {
+            clear: both;
+        }
+        .posfilterlist_container
+        .item_con_list .item_detail .item_desc{
+            margin-left: 20px;
+            color: #333;
+            line-height: 26px;
+        }
+        .posfilterlist_container .item_con_list .con_list_item .left_border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #00b38a;
+        }
+        .posfilterlist_container .item_con_list .item_title_date:before, .posfilterlist_container .item_con_list .item_title_date:after {
+        content: "";
+        display: table;
+    }
+    </style>
+</head>
+<body>
+    <div class="containerCompanyDetails">
+        <div class="posfilterlist_container item_container">
+            <div class="item_title">近两个月共有<span class="list_total">0</span>个在招聘
+            </div>
+            <div class="item_content">
+                <div class="item_con_filter" style="display:inline-block;">
+                    <span class="con_filter_type">职位: </span>
+                    <ul class="con_filter_ul">
+                        <li class="con_filter_li no_select selected">全部</li>
+                        <li class="con_filter_li no_select">技术</li>
+                        <li class="con_filter_li no_select">产品</li>
+                        <li class="con_filter_li no_select">设计</li>
+                        <li class="con_filter_li no_select">运营</li>
+                    </ul>
+                </div>
+                <div class="item_con_list_container">
+                    <div class="list-content">
+                        <ul class="item_con_list">
+                            <li class="con_list_item">
+                                <p class="item_title_date">
+                                    <a href="" class="item_title1 position_link">运营专员[深圳]</a>
+                                    <span class="item_date">2016-10-12 发布</span>
+                                </p>
+                                <p class="item_detail">
+                                    <span class="item_salary">2k-4k</span>
+                                    <span class="item_desc">经验不限 / 大专 / 全职</span>
+                                </p>
+                                <i class="left_border"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var positions = [
+            {
+                category:"技术",
+                title:"Web前端工程师",
+                place:"深圳",
+                salary:"8k-12k",
+                requirements:{
+                    experience:"应届毕业生",
+                    education:"本科",
+                    type:"全职"
+                },
+                date:"2016-10-12"
+            },
+            {
+                category:"产品",
+                title:"采购助理",
+                place:"深圳",
+                salary:"5k-8k",
+                requirements:{
+                    experience:"1-3年",
+                    education:"大专",
+                    type:"全职"
+                },
+                date:"2016-10-12"
+            },
+            {
+                category:"设计",
+                title:"UI设计师",
+                place:"深圳",
+                salary:"6k-12k",
+                requirements:{
+                    experience:"不限",
+                    education:"本科",
+                    type:"全职"
+                },
+                date:"2016-10-12"
+            },
+            {
+                category:"运营",
+                title:"运营专员",
+                place:"深圳",
+                salary:"2k-4k",
+                requirements:{
+                    experience:"不限",
+                    education:"大专",
+                    type:"全职"
+                },
+                date:"2016-10-12"
+            },
+        ];
+        var totalEle = document.querySelector(".list_total");
+      /*  根据不同类型，显示职位列表
+       *  参数 cat 字符串，是职位类型；如技术
+       *  2016-11-01
+       */
+        function addPositionsHtml(positions){
+          var container = document.querySelector(".item_con_list");
+          container.innerHTML="";
+          for (var i = 0; i < positions.length; i++) {
+              var position= positions[i];
+              console.log(position);
+              container.appendChild(getPositionItemNode(position));
+          }
+        }
+
+        function getPositionItemNode(position) {
+          var li = document.createElement("li");
+          li.className = "con_list_item";
+          // container.appendChild(li);
+          var p = document.createElement("p");
+          p.className = "item_title_date";
+          li.appendChild(p);
+          var a = document.createElement("a");
+          a.className = "item_title1 position_link";
+          a.innerText=position.title;
+          p.appendChild(a);
+          var requirements = position.requirements;
+          var span = document.createElement("span");
+          span.className = "item_date";
+          span.innerText = position.date+"  发布";
+          p.appendChild(span);
+          var p2 = document.createElement("p");
+          li.appendChild(p2);
+          p2.className = "item_detail";
+          var span1 = document.createElement("span");
+          span1.className="item_salary";
+          span1.innerText = position.salary;
+          var span2 = document.createElement("span");
+          span2.className="item_desc"
+          span2.innerText = requirements.education+" /"+requirements.experience+" /"+requirements.type;
+          p2.appendChild(span1);
+          p2.appendChild(span2);
+          var i = document.createElement("i");
+          i.className = "left_border";
+          li.appendChild(i);
+          return li;
+        }
+        function showPositions(cat){
+          var arr = getPositionsByCat(cat);
+          addPositionsHtml(arr);
+          console.log(arr);
+          /*根据类别得到职位列表数据
+          将数据渲染到页面*/
+        }
+        window.addEventListener("load",function(){
+            totalEle.innerHTML = positions.length;
+            var positionsUl = document.querySelector(".con_filter_ul");
+            positionsUl.addEventListener("click",function(event){
+            var target = event.target;
+            console.log(target.tagName);
+            if(target.tagName != "LI"){
+                return false;
+            }
+            var currentCat = document.querySelector(".con_filter_ul .selected");
+            if(currentCat == target){
+                console.log(currentCat.innerText);
+                return false;
+            }
+            currentCat.classList.remove("selected");
+            target.classList.add("selected");
+            showPositions(target.innerText);
+            },false)
+        },false)
+        /*
+         *通过cat获得职位列表 参数cat 字符串 如技术
+         *返回一个职位列表数组
+         *2016-11
+         */
+        function getPositionsByCat(cat){
+          var arr = [];
+
+          for (var i = 0; i < positions.length; i++) {
+            if(cat == "全部"){
+              arr.push(positions[i]);
+            }else if (positions[i].category == cat) {
+              arr.push(positions[i]);
+            }
+        }
+        return arr;
+      }
+    </script>
+</body>
+</html>
